@@ -1,3 +1,4 @@
+import os
 import mysql.connector as mysql # pip install mysql-connector-python
 import pandas as pd # pip install pandas
 import numpy as np # pip install numpy
@@ -32,7 +33,7 @@ def extract_data_from_csv(list_columns, csv_file):
     return df
 
 def add_data_to_db(df):
-    sql = SQL_connector("localhost", "root", "test123", "joconde")
+    sql = SQL_connector(os.getenv('DB_HOST'), os.getenv('DB_USERNAME'), os.getenv('DB_PASSWORD'), "joconde")
     sql.connect()
     df = df.replace({np.nan: None})
     for _, row in df.iterrows():
@@ -89,4 +90,5 @@ def main():
 
 
 if __name__ == "__main__":
+    load_dotenv()
     test()
