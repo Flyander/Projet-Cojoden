@@ -1,6 +1,7 @@
-import mysql.connector as mysql
-import pandas as pd
-import numpy as np
+import mysql.connector as mysql # pip install mysql-connector-python
+import pandas as pd # pip install pandas
+import numpy as np # pip install numpy
+from dotenv import load_dotenv # pip install python-dotenv
 
 class SQL_connector:
     def __init__(self, host, user, password, database):
