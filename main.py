@@ -1,31 +1,8 @@
 import os
-import mysql.connector as mysql # pip install mysql-connector-python
 import pandas as pd # pip install pandas
 import numpy as np # pip install numpy
 from dotenv import load_dotenv # pip install python-dotenv
-
-class SQL_connector:
-    def __init__(self, host, user, password, database):
-        self.host = host
-        self.user = user
-        self.password = password
-        self.database = database
-        self.connection = None
-        self.cursor = None
-
-    def connect(self):
-        self.connection = mysql.connect(host=self.host, user=self.user, password=self.password, database=self.database)
-        self.cursor = self.connection.cursor()
-
-    def close(self):
-        self.cursor.close()
-        self.connection.close()
-
-    def execute(self, sql):
-        self.cursor.execute(sql)
-
-    def fetchall(self):
-        return self.cursor.fetchall()
+from functions.sql_wrapper import SQL_connector
     
 
 def extract_data_from_csv(list_columns, csv_file):
