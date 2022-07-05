@@ -1,0 +1,38 @@
+CREATE DATABASE IF NOT EXISTS Joconde;
+USE Joconde;
+
+CREATE TABLE IF NOT EXISTS Auteur (
+    id_auteur INTEGER PRIMARY KEY AUTO_INCREMENT,
+    nom_auteur VARCHAR(255) DEFAULT NULL,
+    precisions VARCHAR(255) DEFAULT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Auteur_oeuvre (
+    id_auteur INTEGER DEFAULT NULL,
+    id_oeuvre INTEGER DEFAULT NULL,
+    PRIMARY KEY (id_auteur, id_oeuvre)
+);
+
+CREATE TABLE IF NOT EXISTS Oeuvre(
+    id_oeuvre INTEGER PRIMARY KEY AUTO_INCREMENT,
+    titre VARCHAR(255) NOT NULL,
+    domaine VARCHAR(255) DEFAULT NULL,
+    description VARCHAR(255) DEFAULT NULL,
+    dimensions VARCHAR(255) DEFAULT NULL,
+    epoque VARCHAR(255) DEFAULT NULL,
+    geographie_hist VARCHAR(255) DEFAULT NULL,
+    lieu_creation VARCHAR(255) DEFAULT NULL,
+    lieu_de_conservation VARCHAR(255),
+    materiaux_techniques VARCHAR(255) DEFAULT NULL,
+    id_ville INTEGER DEFAULT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Ville(
+    id_ville INTEGER PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(255) DEFAULT NULL,
+    longitude Double DEFAULT NULL,
+    latitude Double DEFAULT NULL,
+    pays VARCHAR(255) DEFAULT NULL,
+    departement VARCHAR(255) DEFAULT NULL,
+    region VARCHAR(255) DEFAULT NULL
+);
