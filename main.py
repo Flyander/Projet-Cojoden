@@ -26,8 +26,18 @@ def add_data_to_db(df):
             # sql.execute('INSERT INTO Ville(nom, longitude, latitude, pays, departement, region) VALUES ("{}", {}, {}, "{}", "{}", "{}")'.format(
             #     row["Ville_"], longitude, latitude, row["Ecole"], row["DPT"], row["REGION"]))
 
+            # sql.execute('SELECT id_ville FROM Ville WHERE nom = "{}"'.format(row["Ville_"]))
+            # id_ville_actuel = sql.fetchall()
+
+            # sql.execute('''INSERT INTO Oeuvre(titre, domaine, description, dimensions, epoque, geographie_hist, lieu_creation, lieu_de_conservation, materiaux_techniques, id_ville)
+            # VALUES ("{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", "{}", {})'''.format(
+            #     row["Titre"], row["Domaine"], row["DESC"], row["Dimensions"], row["Epoque"], row["Géographie historique"], row["Lieu de création"],
+            #     row["Lieu de conservation"], row["Matériaux-techniques"], id_ville_actuel)
+            # )
+
             print("INSERT INTO Ville(nom, longitude, latitude, pays, departement, region) VALUES ({}, {}, {}, {}, {}, {})".format(
                 row["Ville_"], latitude, longitude, row["Ecole"], row["DPT"], row["REGION"]))
+
     sql.close()
 
 def test():
